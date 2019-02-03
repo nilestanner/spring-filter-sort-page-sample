@@ -1,0 +1,23 @@
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    banner-mode: "off"
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: ${datasource['username']}
+    password: ${datasource['password']}
+    url: ${datasource['url']}
+logging: # uncomment this on for detailed logging for SQL
+  level:
+    org:
+      hibernate: trace
+application:
+  congo:
+    url: ${congo['url']}
+  timeout:
+    default: 2000
