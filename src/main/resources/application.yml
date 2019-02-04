@@ -14,10 +14,10 @@ spring:
     username: ${DB_USER}
     password: ${DB_PASS}
     url: ${DATABASE_URL}
-logging: # uncomment this on for detailed logging for SQL
-  level:
-    org:
-      hibernate: trace
+#logging: # uncomment this on for detailed logging for SQL
+#  level:
+#    org:
+#      hibernate: trace
 application:
   timeout:
     default: 2000

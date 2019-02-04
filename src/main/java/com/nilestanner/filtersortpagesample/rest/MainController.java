@@ -21,9 +21,9 @@ public class MainController {
      * Search endpoint allows for filtering, sorting and paging.
      *
      * @param search    Format of search string: {key}{operation}{value?},. ex. key1:value1,key2>value2,key3+ .
-     * @param pageSize  number of work orders per page
+     * @param pageSize  number of records per page
      * @param pageIndex index of the page requested
-     * @return List of work orders
+     * @return List of records
      */
     @GetMapping
     public ResponseEntity search(@RequestParam("search") String search, @RequestParam(value = "pagesize", required = false, defaultValue = "50") Integer pageSize,
@@ -36,6 +36,11 @@ public class MainController {
         }
     }
 
+    /**
+     * Creates a new record
+     * @param obj record obj.
+     * @return HTTP status code.
+     */
     @PostMapping
     public ResponseEntity create(@RequestBody MainObj obj) {
         try {
