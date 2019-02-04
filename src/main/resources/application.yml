@@ -1,23 +1,23 @@
-
 spring:
   main:
     allow-bean-definition-overriding: true
     banner-mode: "off"
   jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
   datasource:
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    username: ${datasource['username']}
-    password: ${datasource['password']}
-    url: ${datasource['url']}
+    driver-class-name: org.postgresql.Driver
+    #    username: ${DB_USER}
+    #    password: ${DB_PASS}
+    url: ${DATABASE_URL}
 logging: # uncomment this on for detailed logging for SQL
   level:
     org:
       hibernate: trace
 application:
-  congo:
-    url: ${congo['url']}
   timeout:
     default: 2000

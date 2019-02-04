@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SearchCriteria {
 
-  private String key;
-  private SearchOperation operation;
-  private Object value;
+    private String key;
+    private SearchOperation operation;
+    private Object value;
 }
