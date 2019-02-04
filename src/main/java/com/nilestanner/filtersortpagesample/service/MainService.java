@@ -89,6 +89,10 @@ public class MainService {
         }).filter((sort) -> sort != null).collect(Collectors.toList());
     }
 
+    public void createObj(MainObj obj) {
+        mainRepository.save(obj);
+    }
+
 }
 
 

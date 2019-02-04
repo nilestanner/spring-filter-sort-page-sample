@@ -5,15 +5,12 @@ import com.nilestanner.filtersortpagesample.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/workorder")
+@RequestMapping("/main")
 public class MainController {
 
     @Autowired
@@ -29,11 +26,21 @@ public class MainController {
      * @return List of work orders
      */
     @GetMapping
-    public ResponseEntity searchWorkOrders(@RequestParam("search") String search, @RequestParam(value = "pagesize", required = false, defaultValue = "50") Integer pageSize,
+    public ResponseEntity search(@RequestParam("search") String search, @RequestParam(value = "pagesize", required = false, defaultValue = "50") Integer pageSize,
                                            @RequestParam(value = "pageindex", required = false, defaultValue = "0") Integer pageIndex) {
         try {
             List<MainObj> mainObjList = mainService.search(search, pageSize, pageIndex);
             return new ResponseEntity(mainObjList, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity create(@RequestBody MainObj obj) {
+        try {
+            mainService.createObj(obj);
+            return new ResponseEntity(HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
