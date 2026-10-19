@@ -18,7 +18,7 @@
         <!-- Build, Test & Report -->
         <bean-matchers.version>0.11</bean-matchers.version>
         <junit-jupiter.version>5.3.1</junit-jupiter.version>
-        <jacoco.version>0.8.2</jacoco.version>
+        <jacoco.version>0.8.15</jacoco.version>
         <jacoco-maven-plugin.jacoco-ut.exec>${project.build.directory}/coverage-reports/jacoco-ut.exec
         </jacoco-maven-plugin.jacoco-ut.exec>
         <jacoco-maven-plugin.jacoco-it.exec>${project.build.directory}/coverage-reports/jacoco-it.exec
